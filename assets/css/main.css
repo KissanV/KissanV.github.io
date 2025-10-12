@@ -6,6 +6,55 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+.polybox-section {
+	background-color: #1d1f27;
+	padding: 2.5em 1.5em;
+	border-radius: 1em;
+	text-align: center;
+	max-width: 500px;
+	margin: 2em auto;
+	color: #dcdde1;
+	font-family: "Open Sans", sans-serif;
+  }
+  
+  .polybox-icon {
+	font-size: 2em;
+	margin-bottom: 0.5em;
+  }
+  
+  .polybox-section h2 {
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-bottom: 0.5em;
+	color: #ffffff;
+  }
+  
+  .polybox-section p {
+	font-size: 1em;
+	line-height: 1.6em;
+	margin-bottom: 1.5em;
+  }
+  
+  .polybox-section a {
+	color: #dcdde1;
+	text-decoration: underline;
+  }
+  
+  .polybox-button {
+	background-color: #f5f6fa;
+	color: #000;
+	padding: 0.75em 2em;
+	border-radius: 12px;
+	text-decoration: none;
+	font-weight: bold;
+	display: inline-block;
+	transition: background 0.3s ease;
+  }
+  
+  .polybox-button:hover {
+	background-color: #dcdde1;
+  }
+  
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -3997,3 +4046,173 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+/* ===== Week Cards ===== */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 410px); /* feste Breite */
+  gap: 1.75rem;
+  justify-content: center;
+}
+
+.week-card {
+  background: #2e3842;
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  text-align: center;
+  min-height: 450px;
+  color: #fff;
+
+  /* Statischer Glow, gleich wie vorher beim Hover */
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255,255,255,0.09) inset,
+    0 0 48px rgba(46, 56, 66, 0.75);
+  transition: none; /* kein Hover-Übergang mehr */
+}
+
+/* Hover komplett neutralisieren */
+.week-card:hover {
+  transform: none;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255,255,255,0.09) inset,
+    0 0 48px rgba(46, 56, 66, 0.75);
+}
+
+.week-card .week-title {
+  display: block;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin: 0 0 .5rem 0;
+  line-height: 1.25;
+}
+
+.week-card .week-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 1.3rem auto 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.95);
+}
+
+.week-card .week-subtitle {
+  color: #ffffff;
+  margin: 1.5rem auto 1.25rem;
+  max-width: 36ch;
+  font-size: 1.1rem;   /* z. B. 1.1rem ≈ 17–18px */
+}
+
+.week-card .week-tags {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: .25rem 0 1rem;
+  font-size: 1rem; 
+}
+.week-card .week-tags a,
+.week-card .week-tags span {
+	color: rgba(255, 192, 203, 0.95);  /* Pastellrosa */	
+	font-weight: 600;
+	letter-spacing: .03em;
+	border-bottom: none;
+	opacity: .9;
+}
+
+.button.light {
+  background-color: #f5f6fa;
+  color: #2e3842 !important;
+  border-radius: 10px;
+  padding: 0.65em 1.4em;
+  border: 0;
+}
+.button.light:hover {
+  background-color: #e6e9ef;
+}
+.button.light:active {
+  background-color: #d8dce5;
+}
+
+/* === Week Card Actions === */
+/* === Buttons in Week-Card: 2 pro Zeile, einzelner mittig === */
+/* === Buttons in Week-Card === */
+.week-card ul.actions {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr); /* 2 gleich breite Spalten */
+  gap: 1.25rem !important;
+  margin-top: 1.5rem !important;
+  padding: 0 !important;
+  justify-items: center;   /* Inhalt (Button) in Spalte zentrieren */
+}
+
+/* jedes li füllt seine Spalte */
+.week-card ul.actions li {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button bleibt gleich groß */
+.week-card ul.actions li > a.button {
+  width: 160px;            /* feste, identische Breite */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Sonderfall: nur 1 Button → mittig über beide Spalten */
+.week-card ul.actions li:only-child {
+  grid-column: 1 / -1;
+  justify-content: center;
+}
+
+/* Buttons */
+.button.light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  font-weight: 600;
+
+  background-color: #f5f6fa !important;   /* immer weiß */
+  color: #2e3842 !important;
+  border: 0;
+  border-radius: 12px;
+
+  /* Afterglow permanent */
+  box-shadow:
+    0 0 12px rgba(46, 56, 66, 0.6),
+    0 0 4px rgba(46, 56, 66, 0.4) inset;
+}
+
+/* Hover & Active überschreiben → keine Änderung */
+.button.light:hover,
+.button.light:active,
+.button.light:focus {
+  background-color: #f5f6fa !important;
+  color: #2e3842 !important;
+  box-shadow:
+    0 0 12px rgba(46, 56, 66, 0.6),
+    0 0 4px rgba(46, 56, 66, 0.4) inset;
+}
+
+/* Buttons nach unten verschieben */
+.week-card .actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 5rem;   /* mehr Abstand nach unten */
+  flex-wrap: nowrap;
+}
+
